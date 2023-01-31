@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Notes Application</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet'  href='styles.css'>
+</head>
+<body>
+        <h1 class="box" id="heading"><%=kindOfDay%> </h1>
+    <div class="box">
+        <ul>
+           <% items.forEach(element => { %>
+               <form method="post" action="/delete">
+                <div class="item">
+                    <input type="checkbox" onchange="this.form.submit()" value="<%= element._id%>" name="chkbox">
+                    <p><%= element.name %> </p>
+                </div>
+               </form>
+           <% }) %> 
+        </ul>
+    </div>
+    <div class="box">
+        <form action="/" method="post">
+            <input type="text" name="do" placeholder="Enter a Task">
+            <button type="submit" name="btn" value="<%=value%>">+</button>
+        </form>
+    </div>
+</body>
+</html>
